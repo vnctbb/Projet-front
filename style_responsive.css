@@ -1,0 +1,657 @@
+/*  styles génériques*/
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+body{
+  background-color: #4D6FFF;
+  color: #FFF;
+  font-family: 'Lato', sans-serif;
+  font-size: 1em;
+  overflow-x: hidden ;
+  width: 100%;
+}
+
+.none{
+  display: none;
+}
+
+.block{
+  display: block;
+}
+
+.ranchers{
+  font-family: 'Ranchers', cursive;
+}
+
+button{
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+
+/* Compte à rebours */
+.horloge{
+  font-family: 'Ranchers', cursive;
+  font-size: 3em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.horloge+p{
+  text-align: center;
+  z-index: 20;
+}
+
+/* -------------------------------*/
+/* BLOC - JEU */
+/* -------------------------------*/
+
+.bloc_jeu{
+  background-color: #7993FF;
+  border: 4px solid #FFF;
+  box-shadow: 5px 5px 15px rgba(75, 75, 75,0.8);
+  height: 608px;
+  margin: 0px auto 100px auto;
+  position : relative;
+  width: 368px;
+  z-index:20;
+}
+
+.versionNoel{
+  color: #C43B36;
+  font-family: 'Ranchers', cursive;
+  font-size: 1.4em;
+  top: 25px;
+  font-weight: bold;
+  right: -5px;
+  transform: rotate(-30deg);
+}
+
+canvas{
+  background-image: url(img/background2.jpg);
+  margin: 0 auto;
+}
+
+/* -------------------------------*/
+/* Affichage haut In Game */
+/* -------------------------------*/
+
+.affichageIG{
+  position: absolute;
+  display: flex;
+  font-size: 1.5em;
+  justify-content: space-between;
+  top: 0;
+  width : 100%;
+}
+
+.affichageIG p{
+  margin-left: 10px;
+}
+
+.rightIG{
+  display: flex;
+  flex-flow: row wrap;
+  font-size: 3em;
+  justify-content: space-between;
+}
+
+.buttonIG{
+  font-size: 1.3em;
+}
+
+.buttonIG:focus{
+  outline: none;
+}
+
+.affichageIGBas{
+  bottom: 0;
+  font-size: 1.5em;
+  position: absolute;
+  right: 10px;
+}
+
+/* -------------------------------*/
+/* BLOC - COMPÉTENCES - Bootstrap */
+/* -------------------------------*/
+
+.w {
+  padding-top: 35px;
+  margin-bottom: 100px;
+}
+
+.w h4 {
+  font-weight: 700;
+}
+
+/* Blur quand les compétences ne sont pas débloquées */
+.blur{
+  filter: blur(3px);
+}
+
+.blur i {
+  color: #FFF952;
+  font-size: 30px;
+}
+
+/* Cadenas quand les compétences ne sont pas débloquées */
+.fa-lock{
+  color: white;
+  font-size: 20px;
+  left: calc(50% - 15px);
+  position: absolute;
+  top: calc(50% - 15px);
+  z-index: 100;
+}
+
+/* -------------------------------*/
+/* Menu accueil */
+/* -------------------------------*/
+
+.home{
+  color: #FFF;
+  height: 80%;
+  left: calc(50% - 150px);
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 300px;
+}
+
+.home h1{
+  font-family: 'Ranchers', cursive;
+  font-size: 4em;
+  margin-top: 0;
+}
+
+.home p{
+  position: absolute;
+}
+
+.home button{
+  outline: none;
+  position: absolute;
+}
+
+.home div p{
+  font-size: 3em;
+  font-weight: 300;
+}
+
+/* bouton play depuis le menu */
+.homePlay{
+  font-size: 3em;
+  left: 119px;
+  top: 243px;
+}
+
+/* bouton help depuis le menu */
+.homeHelp{
+  font-size: 2.5em;
+  left: 127px;
+  top: 356px;
+}
+
+/* bouton play depuis le menu */
+.homeSetting{
+  font-size: 2em;
+  left: 289px;
+  top: 5px;
+}
+
+/* -------------------------------*/
+/* Version Noel */
+/* -------------------------------*/
+
+/* bouton switch Noel mode */
+
+.buttonNoel{
+  background-color: #C43B36;
+  border-radius: 50px;
+  border: 4px solid #006E55;
+  color: white;
+  font-family: 'Ranchers', cursive;
+  font-weight: bold;
+  height: 80px;
+  left: -25px;
+  outline: none;
+  padding-top: 12px;
+  position: absolute;
+  text-align: center;
+  transition-property: transform;
+  transition-duration: 0.5s;
+  top: 95px;
+  width: 80px;
+}
+
+.buttonNoel:hover{
+  background-color: #006E55;
+  border: 4px solid #C43B36;
+  transform: rotate(45deg);
+}
+
+/* bouton switch Classique mode */
+
+.buttonClassique{
+  background-color: #4D6FFF;
+  border-radius: 50px;
+  border: 4px solid #FFF952;
+  color: white;
+  font-family: 'Ranchers', cursive;
+  font-weight: bold;
+  height: 90px;
+  left: -25px;
+  outline: none;
+  position: absolute;
+  text-align: center;
+  transition-property: transform;
+  transition-duration: 0.5s;
+  top: 95px;
+  width: 90px;
+}
+
+.buttonClassique:hover{
+  background-color: #FFF952;
+  border: 4px solid #4D6FFF;
+  color: #4D6FFF;
+  transform: rotate(-45deg);
+}
+
+/* -------------------------------*/
+/* Menu Setting */
+/* -------------------------------*/
+
+.setting{
+  background-color: rgba(250, 250, 250, 0.5);
+  border-radius: 15px;
+  color: #FFF;
+  display: none;
+  height: 80%;
+  left: calc(50% - 150px);
+  position: absolute;
+  text-align: center;
+  top: 60px;
+  width: 300px;
+}
+
+.setting h2{
+  font-family: 'Ranchers', cursive;
+}
+
+/* bouton switch on/off audio */
+
+.onoff{
+  display: flex;
+  flex-flow: row wrap;
+  font-size: 2.5em;
+  justify-content: space-evenly;
+  margin-top: 15px;
+}
+
+.fa-volume-off{
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.sliders{
+  margin: 15px auto;
+  width: 80%;
+}
+
+/* -------------------------------*/
+/* Menu Help */
+/* -------------------------------*/
+
+.help{
+  background-color: rgba(250, 250, 250, 0.5);
+  border-radius: 15px;
+  color: #FFF;
+  display: none;
+  height: 80%;
+  left: calc(50% - 150px);
+  position: absolute;
+  text-align: center;
+  top: 60px;
+  width: 300px;
+}
+
+.help h2{
+  font-family : 'Ranchers', cursive;
+}
+
+.help button:focus {
+  outline: none;
+}
+
+.contenuHelp{
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+}
+
+.contenuHelp > img{
+  height: 35px;
+  margin: 0 auto;
+  width: 35px;
+}
+
+.fa-times{
+  font-size: 2em;
+}
+
+/* -------------------------------*/
+/* style commun Perdu / Win */
+/* -------------------------------*/
+
+.menuLooseWin{
+  color: #FFF;
+  display: none;
+  height: 300px;
+  left: calc(50% - 150px);
+  position: absolute;
+  text-align: center;
+  width: 300px;
+}
+
+.menuLooseWin img {
+  height: 45px;
+  width : 45px;
+}
+
+.menuLooseWin button:focus{
+  outline: none;
+}
+
+/* -------------------------------*/
+/* Menu Perdu */
+/* -------------------------------*/
+
+.perdu{
+  font-size: 2em;
+  top: 100px;
+}
+
+.perdu div:first-of-type{
+  margin-bottom: 50px;
+}
+
+.perdu div:last-child{
+  display: flex;
+  flex-flow: row wrap;
+  font-size: 0.8em;
+  justify-content: space-around;
+}
+
+.perdu p:last-of-type{
+  font-family: 'Ranchers', cursive;
+  margin-bottom: 75px;
+}
+
+/* -------------------------------*/
+/* Menu Win */
+/* -------------------------------*/
+
+.win{
+  font-size: 1.8em;
+  top: 75px;
+}
+
+.win div:first-of-type{
+  margin-bottom: 25px;
+}
+
+.win p:nth-child(3){
+  font-family: 'Ranchers', cursive;
+  margin-bottom: 75px;
+}
+
+.win div:last-of-type{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin-bottom: 75px;
+}
+
+/* -------------------------------*/
+/* Affichage explication niveau 4*/
+/* -------------------------------*/
+
+.menuWinBoss{
+  color: #FFF;
+  display: none;
+  font-size: 1.2em;
+  height: 300px;
+  left: calc(50% - 150px);
+  position: absolute;
+  text-align: center;
+  top: calc(50% - 150px);
+  width: 300px;
+}
+
+.menuWinBoss p{
+  margin-bottom: 25px;
+}
+
+.menuWinBoss p:last-of-type{
+  margin-bottom: 60px;
+}
+
+.menuWinBoss button{
+  font-size: 1.4em;
+}
+
+.menuWinBoss button:focus{
+  outline: none;
+}
+
+/* -------------------------------*/
+/* Déblocage image de fin*/
+/* -------------------------------*/
+
+.imageFin{
+  border-radius: 15px;
+  box-shadow: 5px 5px 15px rgba(75, 75, 75,0.8);;
+}
+
+/* -------------------------------*/
+/* Download CV + Contact*/
+/* -------------------------------*/
+
+.lune{
+  font-family: 'Ranchers', cursive;
+  color: white;
+  margin: 20px;
+  text-align: center;
+}
+
+.lune a{
+  font-size: 2em;
+  color: white;
+}
+
+.contact{
+  text-align: center;
+  margin: 20px auto;
+  color: white;
+  width: 100px;
+  text-decoration: none;
+  width: 50%;
+}
+
+.contact p:first-of-type{
+  font-size: 2em;
+  font-family: 'Ranchers', cursive;
+}
+
+.contact a{
+  color: #FFF952;
+}
+
+.btnContact{
+  display: none;
+}
+
+body > p:last-of-type{
+  position: absolute;
+  right: 10px;
+}
+
+.terre{
+  display: none;
+}
+
+/* -------------------------------*/
+/* Download CV + Contact*/
+/* -------------------------------*/
+
+.affichageMobile{
+  background-color: rgba(250, 250, 250, 0.8);
+  border-radius: 15px;
+  color: #FFF;
+  display: none;
+  height: 80%;
+  left: calc(50% - 150px);
+  margin: 4px;
+  position: absolute;
+  text-align: center;
+  top: 60px;
+  width: 300px;
+}
+
+.affichageMobile p{
+  font-family: 'Ranchers', cursive;
+  font-size: 1.5em;
+}
+
+.affichageMobile p:first-of-type{
+  margin-top: 150px;
+}
+
+/* -------------------------------*/
+/* Version Desktop*/
+/* -------------------------------*/
+
+@media screen and (min-width: 840px) {
+
+  .contact{
+    background-image: url('img/planet.png');
+    background-size: 550px;
+    height: 550px;
+    left : 58%;
+    position: absolute;
+    text-align: center;
+    transition-duration: 0.5s;
+    transition-property: color, transform;
+    top: 150px;
+    width: 550px;
+  }
+
+  .contact p:first-of-type{
+    display: none;
+  }
+  
+  .contact div{
+    font-size: 1.2em;
+    margin: 105px auto;
+    text-align: center;
+    transform: rotate(-45deg);
+    width: 200px;
+  }
+  
+  .contact div p{
+    color: rgba(250, 250, 250, 0.7);
+    font-weight: bold;
+    margin-bottom: 18px;
+  }
+  
+  .contact div a{
+    color: rgba(250, 250, 250, 0.7);
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .btnContact{
+    color: rgba(250,250,250, 0.5);
+    display: block;
+    font-family: 'Ranchers', cursive;
+    font-size: 2em;
+    font-weight: bold;
+    margin: -15px auto;
+  }
+  
+  .btnContact:hover{
+    text-decoration: none;
+  }
+  
+  .opacity{
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 0.5s;
+  }
+  
+  /* Déclenchement transition lors du survol */
+  .contact:hover{
+    color: rgba(250,250,250, 1);
+    text-decoration: none;
+    transform: rotate(45deg);
+  }
+  
+  .contact:hover .btnContact{
+    color: rgba(250,250,250, 1);
+  }
+  
+  .contact:hover .opacity{
+    opacity: 1;
+  }
+  
+  /* -------------------------------*/
+  /* Lune -> CV */
+  /* -------------------------------*/
+  
+  .lune{
+    background-image: url('img/lune.png');
+    background-size: 350px;
+    border: none;
+    border-radius: 250px;
+    box-shadow: 5px 5px 15px rgba(75,75,75, 0.8);
+    color: rgba(250,250,250, 0.5);
+    font-family: 'Ranchers', cursive;
+    font-size: 15px;
+    font-weight: bold;
+    height: 350px;
+    left: 5%;
+    padding-top: 125px;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    transform: rotate(-20deg);
+    top: 10px;
+    transition-duration: 0.5s;
+    transition-property: transform, color;
+    width: 350px;
+  }
+
+  .lune a{
+    color: rgba(250,250,250, 0.8);
+  }
+  
+  /* Déclenchement transition lors du survol */
+  .lune:hover{
+    transform: scale(1.2);
+    transform: rotate(-55deg);
+  }
+
+  .lune:hover a{
+    color: rgba(250,250,250, 1);
+    text-decoration: none;
+  }
+
+  .terre{
+    display: block;
+    left: 23%;
+    position: absolute;
+    top: 525px;
+    width: 250px;
+  }
+}
