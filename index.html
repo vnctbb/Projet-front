@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Chargement CSS Bootstrap -->
+  <link rel="stylesheet" href="Vendors/Bootstrap/css/myfichier.css">
+  <!-- Chargement Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ranchers&display=swap"
+    rel="stylesheet">
+  <!-- Chargement logo Font Awesome -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+    rel="stylesheet" />
+  <!-- Chargement CSS & JS -->
+  <link rel="stylesheet" href="style_responsive.css">
+  <script src="horloge.js"></script>
+  <script src="main_script.js"></script>
+  <title>👨‍🚀👨‍🚀 SpaceMoji 👨‍🚀👨‍🚀 - Le jeu</title>
+</head>
+
+<body>
+  <!-- Horloge -->
+
+  <div class="horloge">
+    <p id="heure">0000:00:00</p>
+  </div>
+  <p>Termine les trois niveaux pour débloquer les cases cachées !</p>
+
+  <!-- début Bloc contenant le jeu -->
+
+  <div class="bloc_jeu">
+
+    <!-- Affichage haut du canvas in game -->
+    <div class="affichageIG">
+      <p id="scoreInGame" class="none">Score : </p>
+      <p id="pvBoss" class="none">75 PV</p>
+      <div class="rightIG=">
+        <button class="buttonIG"><i class="fas fa-sliders-h none"
+            id="buttonSetting"></i></button>
+        <button class="buttonIG"><i class="far fa-question-circle none"
+            id="buttonHelp"></i></button>
+        <button class="buttonIG"><i class="far fa-play-circle none"
+            id="buttonPlay"></i></button>
+      </div>
+    </div>
+    <!-- Affichage vie bas -->
+    <div class="affichageIGBas">
+      <p id="vieFusée" class="none">3 vies</p>
+    </div>
+
+    <!-- Canvas -->
+
+    <canvas id="canvas" height="600" width="360"></canvas>
+
+    <!-- Affichage Menu Home -->
+
+    <div id="menuHome" class="home">
+      <h1>SPACE JS</h1>
+      <p class="versionNoel none">Version Noel</p>
+      <!-- Bouton noel -->
+      <button id="buttonNoel" class="buttonNoel" type='button'>Version
+        Noël</button>
+      <button id="buttonClassique" class="none" type='button'>Version
+        Classique</button>
+      <img id="laFusée" src="img/fuseee.png" alt="La fusée">
+      <button class="homePlay"><i class="far fa-play-circle"
+          id="homePlay"></i></button>
+      <button class='homeHelp'><i class="far fa-question-circle"
+          id="homeHelp"></i></button>
+      <button class='homeSetting'><i class="fas fa-sliders-h"
+          id="homeSetting"></i></button>
+    </div>
+
+    <!-- Affichage Menu Setting -->
+
+    <div id="menuSetting" class="setting">
+      <h2>Setting</h2>
+      <p>Sons on / off</p>
+      <div class="onoff">
+        <p><i class="fas fa-volume-up" id="soundOn"></i></p>
+        <p><i class="fas fa-volume-off" id="soundOff"></i></p>
+      </div>
+      <!-- sliders bootstrap -->
+      <div class="sliders">
+        <label for="soundRange1">Musique</label>
+        <input type="range" class="custom-range" min="0" max="5" value="2"
+          id="soundRange1">
+      </div>
+      <div class="sliders">
+        <label for="soundRange2">Effets</label>
+        <input type="range" class="custom-range" min="0" max="5" value="2"
+          id="soundRange2">
+      </div>
+      <p id="settingCross"><i class="fas fa-times"></i></p>
+    </div>
+
+    <!-- Affichage Menu Help -->
+
+    <div id="menuHelp" class="help">
+      <h2>Aide</h2>
+      <div class="contenuHelp">
+        <p>Gauche / Droite : flèches clavier</p>
+        <p>Pause : touche entrer</p>
+        <img src="img/etoile1.png" alt="Etoile qui vaut 1 point">
+        <p>Les étoiles rapporte 1 point</p>
+        <img src="img/etoile2.png" alt="Etoile qui vaut 5 points">
+        <p>Les étoiles Bonus rapporte 5 points</p>
+        <p>Si un alien te touche c'est perdu !</p>
+        <p>Si tu rentre dans une planète c'est perdu !</p>
+      </div>
+      <button id="helpCross"><i class="fas fa-times"></i></button>
+    </div>
+
+    <!-- Affichage Règle Noel -->
+
+    <div id="menuHelpNoel" class="help">
+      <h2>Version Noel</h2>
+      <div class="contenuHelp">
+        <p>Gauche / Droite : flèches clavier</p>
+        <p>Pause : touche entrer</p>
+        <img src="img/flocon.png" alt="Etoile qui vaut 1 point">
+        <p>Les flocons rapporte 1 point</p>
+        <img src="img/cadeau.png" alt="Etoile qui vaut 5 points">
+        <p>Les cadeaux Bonus rapporte 5 points</p>
+        <p>Si un bonhomme de neige ou un sapin te touche c'est perdu !</p>
+        <p>Si tu rentre dans une planète c'est perdu !</p>
+      </div>
+      <button id="helpNoelCross"><i class="fas fa-times"></i></button>
+    </div>
+
+    <!-- Affichage Menu Perdu -->
+
+    <div id="menuPerdu" class="menuLooseWin perdu">
+      <p class="ranchers">Dommage !</p>
+      <div>
+        <img class="imagePerdu" src="img/alien.png" alt="Alien">
+        <img class="imagePerdu" src="img/alien.png" alt="Alien">
+        <img class="imagePerdu" src="img/alien.png" alt="Alien">
+      </div>
+      <p class="ranchers" id="perduScore">Score : </p>
+      <p class="ranchers none" id="perduBestScore">Meilleur Score :</p>
+      <div>
+        <button id="perduRejouer">Rejouer</button>
+        <button id="perduRetour">Retour</button>
+      </div>
+    </div>
+
+    <!-- Affichage Menu Win -->
+
+    <div id="menuWin" class="menuLooseWin win">
+      <p class="ranchers" id="winMessageA">Niveau terminé !</p>
+      <div>
+        <img src="img/etoile1.png" alt="Stars">
+        <img src="img/etoile2.png" alt="Stars">
+        <img src="img/etoile1.png" alt="Stars">
+      </div>
+      <p class="ranchers" id="winScore">Score : </p>
+      <div>
+        <button id="niveauSuivant">Niveau suivant</button>
+        <button id="winRetour">Retour</button>
+      </div>
+      <p id="winMessageB">EXP débloqué !</p>
+      <p>👇👇👇</p>
+    </div>
+
+    <!-- Affichage Boss Final -->
+
+    <div id="menuWinBoss" class="menuWinBoss">
+      <p>Attention, tu va affronter le boss final !</p>
+      <p>Touche W pour lui tirer dessus.</p>
+      <p>Tu as 3 vie, si il te touche tu perds une vie !</p>
+      <button id="okBoss">Ok</button>
+    </div>
+
+    <!-- Affichage Mobile non supporté -->
+
+    <div id="affichageMobile" class="affichageMobile">
+      <p>Désolé, le jeu n'est pas supporté sur ce type d'appareil !</p>
+      <p>Tu peux quand même consulter mon profil en dessous.</p>
+      <p>Bonne lecture !</p>
+    </div>
+  </div>
+
+  <!-- fin Bloc contenant le jeu -->
+
+  <!-- Lien download de mon CV -->
+  <div class="lune">
+    <a href="download/vincent.bongrand.developpeurfullstackjs.pdf"
+      download="CV_VincentBongrand">Télécharger mon CV<br>sans jouer</a>
+  </div>
+  <img class="terre none" src="img/terre.png" alt="La terre">
+
+
+  <!-- Affichage des compétences -->
+
+  <div class="container w">
+    <div class="row text-center">
+      <br><br>
+      <div class="col-lg-4">
+        <i class="fas fa-lock"></i>
+        <div class="blur">
+          <i class="fa fa-trophy"></i>
+          <h4 class="ranchers">EXP</h4>
+          <p>Five Guys ! Une belle aventure, 4 ans dans la restauration rapide !
+            D'équipier à manager ce que j'ai appris pendant cette expérience
+            m'aidera à être un bon développeur ! </p>
+        </div>
+      </div>
+      <!-- col-lg-4 -->
+
+      <div class="col-lg-4">
+        <i class="fas fa-lock"></i>
+        <div class="blur">
+          <i class="fa fa-coffee"></i>
+          <h4 class="ranchers">FORM</h4>
+          <p>Cette année j'ai commencé ma reconversion pro avec Ifocop, en
+            faisant la formation Dev Fullstack Javascript ! Front-end / back-end
+            je deviens un pro du JS !</p>
+        </div>
+      </div>
+      <!-- col-lg-4 -->
+
+      <div class="col-lg-4">
+        <i class="fas fa-lock"></i>
+        <div class="blur">
+          <i class="fa fa-laptop"></i>
+          <h4 class="ranchers">TECH</h4>
+          <p>Mes skills : HTML/CSS, JAVASCRIPT, Jquery, Bootstrap et Angular
+            pour le front ! <br>Node-Js, Mongo DB, Xpress et Ajax pour le
+            back-end !</p>
+        </div>
+      </div>
+      <!-- col-lg-4 -->
+    </div>
+    <!-- row -->
+  </div>
+  <div class="container mb-5 position-relative">
+    <i class="fas fa-lock"></i>
+    <div class="row align-items-center blur">
+      <div class="offset-1 col-10 offset-lg-1 col-lg-5 mb-5">
+        <img src="img/photo_cv.jpg" class="img-fluid imageFin"
+          alt="Photo Vincent">
+      </div>
+      <p class="col-12 offset-lg-1 col-lg-4 suppMobile">Bravo, vous avez vaincu
+        le boss final ! Tous les niveaux sont terminés, me voici dévoilé ! Je
+        vous laisse maintenant vous amuser avec le mode sans fin ! <br>
+        Pour plus de niveau ou pour collaborer, contactez moi pour en discuter !
+        Disponible à partir du 10 février !<br>
+      </p>
+    </div>
+  </div>
+
+  <!-- Contact -->
+
+  <div class="contact">
+    <div>
+      <p class="forMobile">Me contacter</p>
+      <p class="opacity">Vincent Bongrand</p>
+      <p class="opacity">Développeur Fullstack Javascript</p>
+      <p class="opacity">06 30 27 19 92</p>
+      <p class="btnContact">Contact</p>
+      <a href="mailto:vincent.bongrand@yahoo.fr"
+        class="opacity">vincent.bongrand@yahoo.fr</a><br>
+      <a href="https://www.linkedin.com/in/vincentbongrand/"
+        class="opacity">LinkedIn</a><br>
+      <a href="https://github.com/vnctbb" class="opacity">Git Hub</a>
+    </div>
+  </div>
+  <img class="terre" src="img/terre.png" alt="la Terre">
+  <p>Vincent Bongrand 2020</p>
+</body>
+
+</html>
