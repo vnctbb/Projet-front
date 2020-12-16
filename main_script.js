@@ -969,7 +969,7 @@ image.background.positionYB = -600;
   // Évènement keydown
   window.addEventListener("keydown", function (event) {
     // touche entrer mets le jeu en pause
-    if (event.keyCode == 13) {
+    if (event.code == "Enter") {
       if(comparateur.play){
         comparateur.runGame = !comparateur.runGame;
         if(comparateur.runGame){
@@ -981,15 +981,15 @@ image.background.positionYB = -600;
       }
     }
     // flèche gauche
-    if (event.keyCode == 37) {
+    if (event.code == "ArrowLeft") {
       direction.left = true;
     }
     // flèche droite
-    if (event.keyCode == 39) {
+    if (event.code == "ArrowRight") {
       direction.right = true;
     }
     // touche W lance un tir
-    if (event.keyCode == 87) {
+    if (event.code == "KeyZ") {
       if(!comparateur.isShooting){
         if(!fusée.desTirs[0].enCours){
           fusée.initialiseTir(fusée.desTirs[0]);
@@ -1009,13 +1009,13 @@ image.background.positionYB = -600;
 
   // Évènement key up
   window.addEventListener("keyup", function (event) {
-    if (event.keyCode == 37) {
+    if (event.code == "ArrowLeft") {
       setTimeout(function () {
         direction.left = false;
         fusée.goUp();
       }, 100);
     }
-    if (event.keyCode == 39) {
+    if (event.code == "ArrowRight") {
       setTimeout(function () {
         direction.right = false;
         fusée.goUp();
